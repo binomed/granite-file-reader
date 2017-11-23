@@ -15,62 +15,32 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <title>granite-file-reader demo</title>
 
-    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
 
-    <script>
-
-      // setup Polymer options
-      window.Polymer = {lazyRegister: true, dom: 'shadow'};
-
-      // load webcomponents polyfills
-      (function() {
-        if ('registerElement' in document
-            && 'import' in document.createElement('link')
-            && 'content' in document.createElement('template')) {
-          // browser has web components
-        } else {
-          // polyfill web components
-          var e = document.createElement('script');
-          e.src = '../../webcomponentsjs/webcomponents-lite.min.js';
-          document.head.appendChild(e);
-        }
-      })();
-
-
-    </script>
-    <link   rel="import" href="../../polymer/polymer.html">
-
-
+    <link rel="import" href="../../polymer/polymer.html">
     <link rel="import" href="../../paper-styles/color.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-icons/iron-icons.html">
-    
-    <link rel="import" href="../../granite-file-reader/granite-file-reader.html">
+    <link rel="import" href="../granite-file-reader.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
-      .spacer-10 { width:100%; height:10px; }
-      .spacer-50 { width:100%; height:50px; }
-      .vertical-section-container {
-        max-width: 550px;
-      }
       .clickHere {
         border-radius: 2px;
         padding: 10px;
         background-color: #4285f4;
-        color: white; 
+        color: white;
       }
     </style>
   </head>
 
-  <body unresolved>
-    <div class="vertical-section-container centered">
+  <body>
+    <div>
 
       <h3>granite-file-reader</h3>
-      <demo-snippet class="centered-demo">
+      <demo-snippet>
         <template>
-          <granite-file-reader  read-as="dataURL" accept=".txt,.html,.css,.sh">
+          <granite-file-reader read-as="dataURL" accept=".png,.jpg">
             <div id="fileReader" class="clickHere">Click here to load a file</div>
           </granite-file-reader>
         </template>
@@ -79,13 +49,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     <script>
       window.addEventListener('WebComponentsReady', function(e) {
-          console.log('components ready');
-          function sayHi() {
-            console.log("hi");
-          }
-          var el = document.getElementById("fileReader");
-          el.addEventListener("click", sayHi, false);    
+        var el = document.getElementById("fileReader");
       });
     </script>
-  </body> 
-</html>     
+  </body>
+</html>
